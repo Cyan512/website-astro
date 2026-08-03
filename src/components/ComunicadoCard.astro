@@ -1,0 +1,57 @@
+---
+import type { Comunicado } from "../data/comunicados";
+
+interface Props {
+    comunicado: Comunicado;
+}
+
+const { comunicado } = Astro.props;
+
+const formatDate = (iso: string): string =>
+    new Date(iso).toLocaleDateString("es-PE", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+---
+
+<article
+    class="group flex flex-col border border-neutral-light/30 bg-neutral-white transition-colors duration-300 hover:border-red-light"
+>
+    <a
+        href={comunicado.href}
+        class="relative block aspect-4/3 overflow-hidden"
+        aria-label={`Leer comunicado: ${comunicado.title}`}
+    >
+        <img
+            src={comunicado.image}
+            alt=""
+            loading="lazy"
+            class="size-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+    </a>
+
+    <div class="flex flex-1 flex-col p-6">
+        <p
+            class="text-[11px] font-semibold uppercase tracking-[0.18em] text-neutral-light"
+        >
+            {formatDate(comunicado.date)}
+        </p>
+        <h3
+            class="mt-2.5 text-lg font-semibold leading-snug text-fonts"
+        >
+            {comunicado.title}
+        </h3>
+
+        <a
+            href={comunicado.href}
+            class="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold uppercase tracking-wide text-red-light transition-colors duration-200 hover:text-primary"
+        >
+            Leer comunicado
+            <span
+                class="inline-block transition-transform duration-300 group-hover:translate-x-0.5"
+                aria-hidden="true"
+            >→</span>
+        </a>
+    </div>
+</article>
