@@ -1,0 +1,84 @@
+---
+import GraduationCap from "@/assets/icons/graduation-cap.svg";
+import Award from "@/assets/icons/award.svg";
+import Microscope from "@/assets/icons/microscope.svg";
+import Stethoscope from "@/assets/icons/stethoscope.svg";
+
+const programs = [
+    {
+        icon: GraduationCap,
+        number: "27",
+        label: "Maestrías",
+    },
+    {
+        icon: Award,
+        number: "06",
+        label: "Doctorados",
+    },
+    {
+        icon: Microscope,
+        number: "14",
+        label: "Segundas Especialidades",
+    },
+    {
+        icon: Stethoscope,
+        number: "09",
+        label: "Residentado Médico",
+    },
+];
+---
+
+<section
+    class="programs-banner relative bg-neutral-black py-16 sm:py-20 lg:py-24"
+>
+    <div
+        class="container-page relative z-10 grid gap-y-12 sm:grid-cols-2 lg:grid-cols-4"
+    >
+        {
+            programs.map((program, index) => (
+                <div
+                    class:list={[
+                        "flex flex-col items-center py-2 text-center",
+                        index > 0 &&
+                            "sm:border-l sm:border-neutral-white/15 sm:pl-8",
+                    ]}
+                >
+                    <program.icon
+                        class="size-10 text-red-light"
+                        aria-hidden="true"
+                    />
+                    <p
+                        class="mt-4 font-display text-5xl font-black text-neutral-white sm:text-6xl"
+                    >
+                        {program.number}
+                    </p>
+                    <p
+                        class="mt-2 max-w-45 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-white/70 sm:text-sm"
+                    >
+                        {program.label}
+                    </p>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+    .programs-banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("/images/bg-section.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .programs-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-neutral-black);
+        opacity: 0.85;
+    }
+</style>
