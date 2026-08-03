@@ -1,0 +1,183 @@
+---
+const quickLinks = [
+    { label: "Maestrías", href: "#" },
+    { label: "Doctorados", href: "#" },
+    { label: "Segundas Especialidades", href: "#" },
+    { label: "Residentado Médico", href: "#" },
+];
+
+const programOptions = [
+    "Maestría",
+    "Doctorado",
+    "Segunda Especialidad",
+    "Residentado Médico",
+];
+---
+
+<section
+    class="relative flex min-h-dvh flex-col overflow-hidden bg-neutral-black"
+>
+    <div class="absolute inset-0" aria-hidden="true">
+        <img src="/images/banner.jpg" alt="" class="size-full object-cover" />
+        <div class="absolute inset-0 bg-neutral-black/70"></div>
+    </div>
+
+    <div class="container-page relative z-10 flex flex-1 flex-col">
+        <div
+            class="grid flex-1 items-center gap-12 pt-28 pb-16 sm:pt-32 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:pt-36"
+        >
+            <div class="text-center lg:text-left">
+                <p
+                    class="text-[11px] font-semibold uppercase tracking-[0.3em] text-neutral-white/70 sm:text-xs lg:text-sm"
+                >
+                    Universidad Nacional de San Antonio Abad del Cusco
+                </p>
+
+                <h1
+                    class="mt-5 font-display text-4xl font-bold uppercase tracking-tight text-neutral-white sm:mt-6 sm:text-5xl lg:text-6xl xl:text-7xl"
+                >
+                    Escuela de Posgrado
+                </h1>
+
+                <p
+                    class="mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-neutral-white/80 sm:text-lg lg:mx-0"
+                >
+                    Programas de maestría, doctorado y segunda especialidad en
+                    un entorno académico de investigación de alto nivel,
+                    comprometidos con el desarrollo de la región y del país.
+                </p>
+
+                <div
+                    class="mt-9 flex flex-wrap items-center justify-center gap-3 sm:mt-10 lg:justify-start"
+                >
+                    <a
+                        href="#"
+                        class="inline-flex items-center rounded-none bg-red-light px-7 py-3 text-sm font-semibold uppercase tracking-wide text-neutral-white transition-colors duration-300 hover:bg-primary sm:px-8 sm:py-3.5 sm:text-base"
+                    >
+                        Admisión 2026
+                    </a>
+                    <a
+                        href="#"
+                        class="inline-flex items-center rounded-none border border-neutral-white/40 px-7 py-3 text-sm font-semibold uppercase tracking-wide text-neutral-white transition-colors duration-300 hover:border-neutral-white hover:bg-neutral-white hover:text-primary sm:px-8 sm:py-3.5 sm:text-base"
+                    >
+                        Programas académicos
+                    </a>
+                </div>
+            </div>
+
+            <div class="mx-auto w-full max-w-md">
+                <form
+                    class="rounded-sm border border-neutral-white/15 bg-neutral-dark/50 p-6 backdrop-blur-md sm:p-8"
+                >
+                    <h2
+                        class="text-lg font-semibold uppercase tracking-wide text-neutral-white sm:text-xl"
+                    >
+                        Solicitar información
+                    </h2>
+                    <p
+                        class="mt-2 text-sm font-light leading-relaxed text-neutral-white/70"
+                    >
+                        Registrar su solicitud para recibir información
+                        actualizada sobre el proceso de admisión.
+                    </p>
+
+                    <div class="mt-6 space-y-4">
+                        <div>
+                            <label
+                                for="contact-name"
+                                class="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-white/70"
+                            >
+                                Nombre y apellidos
+                            </label>
+                            <input
+                                id="contact-name"
+                                name="nombre"
+                                type="text"
+                                required
+                                placeholder="Ingrese sus nombres y apellidos"
+                                class="w-full border border-neutral-white/25 bg-transparent px-3.5 py-2.5 text-sm text-neutral-white placeholder:text-neutral-light focus:border-red-light focus:outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="contact-email"
+                                class="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-white/70"
+                            >
+                                Correo electrónico
+                            </label>
+                            <input
+                                id="contact-email"
+                                name="correo"
+                                type="email"
+                                required
+                                placeholder="usuario@correo.com"
+                                class="w-full border border-neutral-white/25 bg-transparent px-3.5 py-2.5 text-sm text-neutral-white placeholder:text-neutral-light focus:border-red-light focus:outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="contact-phone"
+                                class="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-white/70"
+                            >
+                                Teléfono
+                            </label>
+                            <input
+                                id="contact-phone"
+                                name="telefono"
+                                type="tel"
+                                required
+                                placeholder="+51 900 000 000"
+                                class="w-full rounded-none border border-neutral-white/25 bg-transparent px-3.5 py-2.5 text-sm text-neutral-white placeholder:text-neutral-light focus:border-red-light focus:outline-none"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="contact-program"
+                                class="mb-1.5 block text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-white/70"
+                            >
+                                Programa de interés
+                            </label>
+                            <select
+                                id="contact-program"
+                                name="programa"
+                                required
+                                class="w-full rounded-none border border-neutral-white/25 bg-neutral-dark px-3.5 py-2.5 text-sm text-neutral-white focus:border-red-light focus:outline-none"
+                            >
+                                <option value="" disabled selected>
+                                    Seleccione un programa
+                                </option>
+                                {
+                                    programOptions.map((option) => (
+                                        <option value={option}>{option}</option>
+                                    ))
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="mt-6 w-full rounded-none bg-red-light px-7 py-3 text-sm font-semibold uppercase tracking-wide text-neutral-white transition-colors duration-300 hover:bg-primary"
+                    >
+                        Enviar solicitud
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div
+            class="flex flex-wrap items-center justify-center gap-x-7 gap-y-2 border-t border-neutral-white/15 pt-5 pb-5 sm:gap-x-9 sm:pb-7"
+        >
+            {
+                quickLinks.map((link) => (
+                    <a
+                        href={link.href}
+                        class="text-[11px] font-medium uppercase tracking-[0.18em] text-neutral-white/60 transition-colors duration-200 hover:text-red-light sm:text-xs"
+                    >
+                        {link.label}
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</section>
