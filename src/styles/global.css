@@ -1,1 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
 @import "tailwindcss";
+
+:root {
+    --neutral-white: #f7f9fb;
+    --neutral-black: #000004;
+    --neutral-dark: #353838;
+    --neutral-light: #8aa5ad;
+
+    --red-light: #d12027;
+    --red-dark: #8d191b;
+
+    --blue-dark: #081d62;
+
+    --tertiary: #CC2046;
+    --back: #FFFFFE;
+    --fonts: #292932;
+    --secondary: #F48E1F;
+    --primary: #951B41;
+}
+
+@theme {
+    --font-display: "Titillium Web", sans-serif;
+    --font-body: "Titillium Web", sans-serif;
+
+    --color-neutral-white: var(--neutral-white);
+    --color-neutral-black: var(--neutral-black);
+    --color-neutral-dark: var(--neutral-dark);
+    --color-neutral-light: var(--neutral-light);
+
+    --color-red-light: var(--red-light);
+    --color-red-dark: var(--red-dark);
+
+    --color-blue-dark: var(--blue-dark);
+
+    --color-tertiary: var(--tertiary);
+    --color-back: var(--back);
+    --color-fonts: var(--fonts);
+    --color-secondary: var(--secondary);
+    --color-primary: var(--primary);
+}
+
+@layer base {}
+
+@layer components {
+    .container-page {
+        @apply mx-auto container w-full px-5 sm:px-8 lg:px-10;
+    }
+
+    .pill {
+        @apply bg-neutral-dark/60 backdrop-blur-md text-neutral-white transition-colors hover:bg-neutral-dark/80;
+    }
+
+    #full-menu {
+        @apply transition-opacity duration-300 ease-in-out;
+        visibility: hidden;
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    #full-menu.active-menu {
+        visibility: visible;
+        pointer-events: auto;
+        opacity: 1;
+    }
+
+}
+
+@layer utilities {}
