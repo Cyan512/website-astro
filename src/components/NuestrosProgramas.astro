@@ -1,0 +1,86 @@
+---
+const programs = [
+    {
+        title: "Maestrías",
+        description:
+            "Programas orientados a la investigación y la especialización profesional en las áreas del conocimiento que demanda la región y el país.",
+        image: "/images/banner.jpg",
+    },
+    {
+        title: "Doctorados",
+        description:
+            "Formación de investigadores de alto nivel con capacidad de generar conocimiento original y aportar a la solución de problemas científicos.",
+        image: "/images/bg-section.webp",
+    },
+    {
+        title: "Segundas Especialidades",
+        description:
+            "Actualización y profundización profesional para fortalecer las competencias técnicas y académicas en campos específicos.",
+        image: "/images/banner.jpg",
+    },
+    {
+        title: "Residentado Médico",
+        description:
+            "Programa de formación en servicio que desarrolla las habilidades clínicas y científicas de los profesionales de la salud.",
+        image: "/images/bg-section.webp",
+    },
+];
+---
+
+<section class="bg-back py-16 sm:py-20 lg:py-28">
+    <div class="container-page">
+        <div class="lg:flex lg:flex-col lg:items-center lg:text-center">
+            <p
+                class="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-red-light lg:justify-center"
+            >
+                <span
+                    class="size-1.5 rounded-full bg-current"
+                    aria-hidden="true"
+                ></span>
+                Programas
+            </p>
+            <div
+                class="mt-5 h-px w-12 bg-red-light lg:mx-auto"
+                aria-hidden="true"
+            ></div>
+            <h2
+                class="mt-5 font-display text-3xl font-bold uppercase tracking-tight text-fonts sm:text-4xl lg:text-5xl"
+            >
+                Nuestros programas
+            </h2>
+        </div>
+
+        <div
+            class="mx-auto mt-10 flex h-auto w-full max-w-5xl flex-col gap-6 lg:h-100 lg:flex-row"
+        >
+            {
+                programs.map((program) => (
+                    <div
+                        class="group relative h-64 w-full grow transition-all duration-500 lg:h-100 lg:w-56 lg:hover:w-full lg:focus-within:w-full"
+                    >
+                        <img
+                            src={program.image}
+                            alt=""
+                            loading="lazy"
+                            class="h-full w-full object-cover object-center"
+                        />
+                        <div
+                            class="absolute inset-0 flex flex-col justify-end bg-neutral-black/50 p-8 text-neutral-white transition-all duration-300 lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-within:opacity-100 sm:p-10"
+                        >
+                            <h3
+                                class="text-3xl font-bold text-neutral-white"
+                            >
+                                {program.title}
+                            </h3>
+                            <p
+                                class="mt-2 text-sm text-neutral-white/90"
+                            >
+                                {program.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
